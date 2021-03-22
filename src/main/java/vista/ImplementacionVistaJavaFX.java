@@ -37,36 +37,20 @@ public class ImplementacionVistaJavaFX implements InterrogaVista, InformaVista{
     public void creaGUI() {
         tfNombre = new TextField();
         Button bNuevo = new Button("Nuevo");
-        bNuevo.setOnAction(new EventHandler<>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controlador.anyadeEntrada();
-            }
-        });
+        bNuevo.setOnAction(actionEvent -> controlador.anyadeEntrada());
 
         Button bAtras = new Button("Atrás");
-        bAtras.setOnAction(new EventHandler<>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controlador.atras();
-            }
-        });
+        bAtras.setOnAction(actionEvent -> controlador.atras());
 
         Button bAdelante = new Button("Adelante");
-        bAdelante.setOnAction(new EventHandler<>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controlador.adelante();
-            }
-        });
-        
+        bAdelante.setOnAction(actionEvent -> controlador.adelante());
+
         HBox fpEntrada = new HBox(10, tfNombre, bNuevo, bAtras, bAdelante);
         lContador = new Label(infoEstadoEntradas());
-        HBox fpContador = new HBox(10, lContador);
+        HBox fpContador = new HBox(lContador);
         fpContador.setAlignment(Pos.CENTER);
 
-        VBox fpFinal = new VBox(fpEntrada, fpContador);
-//        fpFinal.setAlignment(Pos.CENTER);
+        VBox fpFinal = new VBox(10, fpEntrada, fpContador);
 
         Scene scene = new Scene(fpFinal);
         stage.setScene(scene);
