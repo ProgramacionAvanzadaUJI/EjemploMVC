@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import controlador.ImplementacionControlador;
 import modelo.ImplementacionModelo;
-import vista.ImplementacionVistaJavaFX;
+import vista.ImplementacionVista;
 
 public class Principal extends Application {
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class Principal extends Application {
     public void start(Stage stage) {
         ImplementacionControlador controlador = new ImplementacionControlador();
         ImplementacionModelo modelo = new ImplementacionModelo();
-        ImplementacionVistaJavaFX vista = new ImplementacionVistaJavaFX(stage);
+        ImplementacionVista vista = new ImplementacionVista(stage);
         modelo.setVista(vista);
         controlador.setVista(vista);
         controlador.setModelo(modelo);

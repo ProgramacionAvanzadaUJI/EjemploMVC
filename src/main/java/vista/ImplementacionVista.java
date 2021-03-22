@@ -11,14 +11,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modelo.InterrogaModelo;
 
-public class ImplementacionVistaJavaFX implements InterrogaVista, InformaVista{
+public class ImplementacionVista implements InterrogaVista, InformaVista{
     private final Stage stage;
     private Controlador controlador;
     private InterrogaModelo modelo;
     private TextField tfNombre;
     private Label lContador;
 
-    public ImplementacionVistaJavaFX(final Stage stage) {
+    public ImplementacionVista(final Stage stage) {
         this.stage = stage;
     }
 
