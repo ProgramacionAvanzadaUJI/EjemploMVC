@@ -1,19 +1,28 @@
 package principal;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
 import vista.ImplementacionVista;
 import controlador.ImplementacionControlador;
 import modelo.ImplementacionModelo;
+import vista.ImplementacionVistaJavaFX;
 
-public class Principal {
-    public static void main(String args[]) {
-	ImplementacionControlador controlador = new ImplementacionControlador();
-	ImplementacionVista vista = new ImplementacionVista();
-	ImplementacionModelo modelo = new ImplementacionModelo();
-	modelo.setVista(vista);
-	controlador.setVista(vista);
-	controlador.setModelo(modelo);
-	vista.setModelo(modelo);
-	vista.setControlador(controlador);
-	vista.creaGUI();
+public class Principal extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) {
+        ImplementacionControlador controlador = new ImplementacionControlador();
+        ImplementacionModelo modelo = new ImplementacionModelo();
+//        ImplementacionVista vista = new ImplementacionVista();
+        ImplementacionVistaJavaFX vista = new ImplementacionVistaJavaFX(stage);
+        modelo.setVista(vista);
+        controlador.setVista(vista);
+        controlador.setModelo(modelo);
+        vista.setModelo(modelo);
+        vista.setControlador(controlador);
+        vista.creaGUI();
     }
 }
